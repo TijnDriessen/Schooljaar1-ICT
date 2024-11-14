@@ -89,7 +89,7 @@ CREATE TABLE Huurcontract (
 	CONSTRAINT pk_huurcontract PRIMARY KEY (contractnr),
 	CONSTRAINT fk_klantnr FOREIGN KEY (klant) REFERENCES Klant(klantnr),
 	CONSTRAINT fk_locatiecodeophalen FOREIGN KEY (locatie_ophalen) REFERENCES Locatie(locatiecode),
-	CONSTRAINT fk_locatiecodewegbrengen FOREIGN KEY (locatie_terugbrengen) REFERENCES Locatie(locatiecode),
+	CONSTRAINT fk_locatiecodeterugbrengen FOREIGN KEY (locatie_terugbrengen) REFERENCES Locatie(locatiecode),
 	CONSTRAINT fk_typecode FOREIGN KEY (wenst_autotype) REFERENCES Autotype(typecode),
 	CONSTRAINT fk_autonr FOREIGN KEY (krijgt_auto) REFERENCES Auto(autonr)
 );		

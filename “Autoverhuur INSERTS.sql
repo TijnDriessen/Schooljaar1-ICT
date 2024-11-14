@@ -10,9 +10,9 @@ DELETE FROM Accessoire;
 
 INSERT INTO Klant (klantnr, voornaam, tussenvoegsels, achternaam, emailadres)
 VALUES ('165321', 'Sjaak', 'van de', 'Hoek', 'sjakievandehoek@mailinator.com'),
-('165322', 'Kees', 'van de', 'Spek', 'Keesvandehoek@mailinator.com'),
-('165323', 'Guus', 'van de', 'Plank', 'Keesvandehoek@mailinator.com'),
-('165324', 'Gerard', 'van de', 'Boom', 'Keesvandehoek@mailinator.com'),
+('165322', 'Kees', 'van de', 'Spek', 'Keesvandespek@mailinator.com'),
+('165323', 'Guus', 'van de', 'Plank', 'Guusvandeplank@mailinator.com'),
+('165324', 'Gerard', 'van de', 'Boom', 'GerardvandeBoom@mailinator.com'),
 ('165325', 'Mark', 'van de', 'Straat', 'Markvandestraat@mailinator.com');
 
 
@@ -41,10 +41,10 @@ VALUES ('BABYSTLGR', 'Babystoel groot', '5.00'),
 INSERT INTO Locatie (locatiecode, naam, adres, postcode, plaats, land)
 VALUES ('SCHIPHAIRP', 'autoverhuur Heijendaal Amsterdam', 'Hoofdweg 27', '1011 AB', 'Amsterdam', 'Nederland' ),
 ('NMGN', 'autoverhuur Heijendaal Nijmegen', 'KeizerKarelPlein 14', '6511 AD', 'Nijmegen', 'Nederland' ),
-('EDHVN', 'autoverhuur Heijendaal Eindhoven', 'Hoofdweg 27', '5623 EL', 'Eindhoven', 'Nederland' ),
-('APLDRN', 'autoverhuur Heijendaal Apeldoorn', 'Hoofdweg 27', '7325 GP', 'Apeldoorn', 'Nederland' ),
+('EDHVN', 'autoverhuur Heijendaal Eindhoven', 'straatweg 18', '5623 EL', 'Eindhoven', 'Nederland' ),
+('APLDRN', 'autoverhuur Heijendaal Apeldoorn', 'florastraat 69', '7325 GP', 'Apeldoorn', 'Nederland' ),
 ('BERLCENTR', 'autoverhuur Heijendaal Berlijn', 'Hauptstraﬂe 78', '10317', 'Berlijn', 'Duitsland' ),
-('MDLBRG', 'autoverhuur Heijendaal Middelburg', 'Hoofdweg 27', '4331 AA', 'Middelburg', 'Nederland' );
+('MDLBRG', 'autoverhuur Heijendaal Middelburg', 'Founastraat 1', '4331 AA', 'Middelburg', 'Nederland' );
 
 
 
@@ -65,8 +65,11 @@ INSERT INTO Huurcontract (contractnr, klant, van_datum, tot_datum, locatie_ophal
 VALUES ('994412', '165321', '2024-07-16', '2024-08-04', 'SCHIPHAIRP', 'BERLCENTR', 'KSUV5', '1', '0','59'),
 ('994413', '165322', '2023-12-01', '2024-01-04', 'NMGN', 'MDLBRG', 'STW5', '1', '0','38'),
 ('994414', '165323', '2024-05-16', '2024-06-04', 'EDHVN', 'NMGN', 'HTCHBK4', '0', '0','57'),
-('994415', '165324', '2021-07-11', '2024-08-04', 'APLDRN', 'EDHVN', 'MNVN6', '1', '0','27'),
-('994416', '165325', '2023-02-07', '2024-03-04', 'MDLBRG', 'BERLCENTR', 'GSUV5', '1', '0','28');
+('994415', '165324', '2021-07-11', '2021-08-04', 'APLDRN', 'EDHVN', 'MNVN6', '1', '0','27'),
+('994416', '165325', '2023-02-07', '2023-03-04', 'MDLBRG', 'BERLCENTR', 'GSUV5', '1', '0','28'),
+('994417', '165323', '2022-04-20', '2022-05-08', 'BERLCENTR', 'NMGN', 'HTCHBK4', '1', '1','57'),
+('994418', '165325', '2020-08-15', '2020-09-20', 'SCHIPHAIRP', 'NMGN', 'STW5', '0', '0','38'),
+('994419', '165321', '2024-10-20', '2024-11-14', 'EDHVN', 'APLDRN', 'KSUV5', '0', '0','28');
 
 
 
@@ -74,10 +77,16 @@ VALUES ('994412', '165321', '2024-07-16', '2024-08-04', 'SCHIPHAIRP', 'BERLCENTR
 
 INSERT INTO Wenst_accessoire (huurcontract, accessoire, aantal)
 VALUES ('994412', 'BABYSTLGR', '2'),
+('994412', 'TRKHK', '1'),
+('994412', 'NAVXL', '1'),
 ('994413', 'NAVXL', '1'),
 ('994414', 'TRKHK', '1'),
 ('994415', 'CMRAS', '1'),
-('994416', 'ATPLT', '1');
+('994416', 'ATPLT', '1'),
+('994413', 'CMRAS', '2'),
+('994416', 'NAVXL', '1'),
+('994418', 'TRKHK', '1');
+
 
 
 
