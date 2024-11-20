@@ -1,5 +1,5 @@
-DELETE FROM Huurcontract;
 DELETE FROM Wenst_accessoire;
+DELETE FROM Huurcontract;
 DELETE FROM Auto;
 DELETE FROM Klant;
 DELETE FROM Locatie;
