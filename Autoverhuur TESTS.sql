@@ -5,10 +5,6 @@ where kenteken = 'FG-SR-79';
 Update Accessoire
 Set accessoirenaam= 'BABYSTLXL'
 where accessoirenaam = 'BABYSTLGR';
-/*
-de naam van BABYSTLGR kan niet veranderd worden omdat er een foreign key aan vast zit, 
-als deze foreign key eerst verwijderd word kan deze regel wel uitgevoerd worden.
-*/
 
 Update Autotype
 Set prijs_per_dag = prijs_per_dag * 1.1
@@ -33,7 +29,8 @@ IF @ConstraintName IS NOT NULL
 
 
 ALTER TABLE Huurcontract
-DROP COLUMN is_betaald;
+DROP COLUMN IF EXISTS is_betaald;
+
 
 ALTER TABLE Huurcontract
 ADD is_betaald BIT NOT NULL DEFAULT 0;

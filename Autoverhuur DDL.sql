@@ -18,6 +18,8 @@ CREATE TABLE Klant (
 
 
 
+
+
 CREATE TABLE Autotype (
 	typecode		char(10)			NOT NULL,
 	omschrijving	varchar(255)		NOT NULL,
@@ -56,7 +58,12 @@ CREATE TABLE Auto (
 	is_in_orde		bit				NOT NULL,
 
 	CONSTRAINT pk_auto PRIMARY KEY (autonr),
-	CONSTRAINT fk_typecodeAuto FOREIGN KEY (autotype) REFERENCES Autotype(typecode)
+
+
+	CONSTRAINT fk_typecodeAuto FOREIGN KEY (autotype) 
+	REFERENCES Autotype(typecode)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION
 	);
 	
 
@@ -87,11 +94,32 @@ CREATE TABLE Huurcontract (
 	krijgt_auto				int			NULL,
 
 	CONSTRAINT pk_huurcontract PRIMARY KEY (contractnr),
-	CONSTRAINT fk_klantnr FOREIGN KEY (klant) REFERENCES Klant(klantnr),
-	CONSTRAINT fk_locatiecodeophalen FOREIGN KEY (locatie_ophalen) REFERENCES Locatie(locatiecode),
-	CONSTRAINT fk_locatiecodeterugbrengen FOREIGN KEY (locatie_terugbrengen) REFERENCES Locatie(locatiecode),
-	CONSTRAINT fk_typecode FOREIGN KEY (wenst_autotype) REFERENCES Autotype(typecode),
-	CONSTRAINT fk_autonr FOREIGN KEY (krijgt_auto) REFERENCES Auto(autonr)
+
+
+	CONSTRAINT fk_klantnr FOREIGN KEY (klant) 
+	REFERENCES Klant(klantnr)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION,
+
+	CONSTRAINT fk_locatiecodeophalen FOREIGN KEY (locatie_ophalen) 
+	REFERENCES Locatie(locatiecode)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION,
+
+	CONSTRAINT fk_locatiecodeterugbrengen FOREIGN KEY (locatie_terugbrengen) 
+	REFERENCES Locatie(locatiecode)
+	ON UPDATE NO ACTION
+    ON DELETE NO ACTION,
+
+	CONSTRAINT fk_typecode FOREIGN KEY (wenst_autotype) 
+	REFERENCES Autotype(typecode)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION,
+
+	CONSTRAINT fk_autonr FOREIGN KEY (krijgt_auto) 
+	REFERENCES Auto(autonr)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION
 );		
 
 
@@ -102,6 +130,15 @@ CREATE TABLE Wenst_accessoire (
 	aantal				int			NOT NULL,
 	
 	CONSTRAINT pk_Wenst_accessoire PRIMARY KEY (huurcontract, accessoire),
-	CONSTRAINT fk_contractnr FOREIGN KEY (huurcontract) REFERENCES Huurcontract(contractnr),
-	CONSTRAINT fk_accessoirenaam FOREIGN KEY (accessoire) REFERENCES accessoire(accessoirenaam)
+
+
+	CONSTRAINT fk_contractnr FOREIGN KEY (huurcontract) 
+	REFERENCES Huurcontract(contractnr)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE,
+
+	CONSTRAINT fk_accessoirenaam FOREIGN KEY (accessoire) 
+	REFERENCES accessoire(accessoirenaam)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION
 );
