@@ -63,7 +63,7 @@ VALUES (59, 'KSUV5', 'FG-SR-79', 'Ford', 'Focus', 'rood', 1,0,0),
 
 INSERT INTO Huurcontract (contractnr, klant, van_datum, tot_datum, locatie_ophalen, locatie_terugbrengen, wenst_autotype, wenst_automaat, wenst_elektrisch, krijgt_auto)
 VALUES (994412, 165321, '2024-07-16', '2024-08-04', 'SCHIPHAIRP', 'BERLCENTR', 'KSUV5', 1, 0,59),
-(995513, 176342, '2024-08-13', '' , 'SCHIPHAIRP', 'ROTTMAAS2', 'SUV7', 0, 1,38),
+(995513, 176342, '2024-08-13', NULL , 'SCHIPHAIRP', 'ROTTMAAS2', 'SUV7', 0, 1,38),
 (994414, 165323, '2024-05-16', '2024-06-04', 'EDHVN', 'ROTTMAAS2', 'HTCHBK4', 0, 0,57),
 (994415, 165324, '2021-07-11', '2021-08-04', 'APLDRN', 'EDHVN', 'MNVN6', 1, 0,27),
 (994416, 165325, '2023-02-07', '2023-03-04', 'MDLBRG', 'BERLCENTR', 'GSUV5', 1, 0,28),

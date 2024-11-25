@@ -142,3 +142,28 @@ CREATE TABLE Wenst_accessoire (
 	ON UPDATE CASCADE
 	ON DELETE NO ACTION
 );
+
+
+Alter table Auto
+Add constraint ck_kentekencheck Unique (kenteken);
+
+Alter table Locatie 
+Add constraint ck_Locatiecheck Unique (adres, plaats, land);
+
+Alter table Huurcontract
+Add constraint ck_Datumcheck CHECK (tot_datum >= van_datum);
+
+Alter table Huurcontract
+Add constraint ck_Autotypecheck CHECK (krijgt_auto = wenst_autotype);
+
+
+
+
+/*
+Alter table Stuk
+Add contraint ck_speelduur CHECK (speelduur > 0);
+
+Alter table Stuk
+Add constraint ck_jaartal CHECK (jaartal <= YEAR(GETDATE())
+);
+*/
