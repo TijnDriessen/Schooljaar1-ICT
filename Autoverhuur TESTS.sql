@@ -37,18 +37,36 @@ DROP COLUMN IF EXISTS is_betaald;
 ALTER TABLE Huurcontract
 ADD is_betaald BIT NOT NULL DEFAULT 0;
 
-insert into Autotype(typecode, omschrijving, aantal_personen, prijs_per_dag, url_image)
-Values('GSUV6', 'hele grote suv', 6, 40.00, 'https://www.opel.nl/personenwagens/corsa-modellen/nieuwe-corsa/overzicht/_jcr_content/pageContent/grid_builder_v2_copy/col1/tiled_gallery/item_1655292846904.coreimg.87.1440.jpeg/1711353942046/opel-corsa-ice-exterior-front-16x9-cosol23-e01-008.jpeg');
+
+Delete From Autotype
+Where typecode = 'GSUVHD6'
+
+Delete From Auto
+Where autonr = 12
+
+Delete From Locatie
+Where locatiecode = 'MDLBRGHD' 
+
+Delete From Huurcontract
+Where contractnr = 994450
+
+
 
 insert into Auto (autonr, autotype, kenteken, merk, modelnaam, kleur, is_automaat, is_elektrisch, is_in_orde)
-Values(12, 'GSUV6', 'FG-SR-79', 'Opel', 'Corsa', 'blauw', 0,1,1);
+Values(12, 'GSUVHD6', 'FG-SR-79', 'Opel', 'Corsa', 'blauw', 0,1,1);
 
 insert into Auto (autonr, autotype, kenteken, merk, modelnaam, kleur, is_automaat, is_elektrisch, is_in_orde)
-Values(12, 'GSUV6', 'FG-SR-78', 'Opel', 'Corsa', 'blauw', 0,1,1);
-
-
-insert into Locatie (locatiecode, naam, adres, postcode, plaats, land)
-Values('MDLBRG2', 'autoverhuur Heijendaal Middelburg', 'Faunastraat 1', '4331 AA', 'Middelburg', 'Nederland');
+Values(12, 'GSUVHD6', 'FG-SR-78', 'Opel', 'Corsa', 'blauw', 0,1,1);
 
 insert into Locatie (locatiecode, naam, adres, postcode, plaats, land)
-Values('MDLBRG3', 'autoverhuur Heijendaal Middelburg', 'Faunastraat 2', '4331 AA', 'Middelburg3', 'Nederland3');
+Values('MDLBRGHD', 'autoverhuur Heijendaal Middelburg', 'Faunastraat 1', '4331 AA', 'Middelburg', 'Nederland');
+
+insert into Locatie (locatiecode, naam, adres, postcode, plaats, land)
+Values('MDLBRGHD', 'autoverhuur Heijendaal Middelburg', 'Faunastraat 2', '4331 AA', 'Middelburg2', 'Nederland2');
+
+insert into Huurcontract(contractnr, klant, van_datum, tot_datum, locatie_ophalen, locatie_terugbrengen, wenst_autotype, wenst_automaat, wenst_elektrisch, krijgt_auto)
+Values (994450, 165321, '2024-10-20', '2024-09-14', 'EDHVN', 'APLDRN', 'KSUV5', 0, 0,28);
+
+insert into Huurcontract(contractnr, klant, van_datum, tot_datum, locatie_ophalen, locatie_terugbrengen, wenst_autotype, wenst_automaat, wenst_elektrisch, krijgt_auto)
+Values (994450, 165321, '2024-10-20', '2024-12-14', 'EDHVN', 'APLDRN', 'KSUV5', 0, 0,28);
+

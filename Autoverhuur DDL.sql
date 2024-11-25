@@ -145,19 +145,23 @@ CREATE TABLE Wenst_accessoire (
 
 
 Alter table Auto
-Add constraint ck_kentekencheck Unique (kenteken);
+Add constraint uc_kentekencheck Unique (kenteken);
 
 Alter table Locatie 
-Add constraint ck_Locatiecheck Unique (adres, plaats, land);
+Add constraint uc_Locatiecheck Unique (adres, plaats, land);
 
 Alter table Huurcontract
 Add constraint ck_Datumcheck CHECK (tot_datum >= van_datum);
 
+
+/*
 Alter table Huurcontract
-Add constraint ck_Autotypecheck CHECK (krijgt_auto = wenst_autotype);
+Add constraint ck_Autotypecheck CHECK (krijgt_auto = wenst_autotype);   
+*/
 
-
-
+/*
+dit kan niet omdat het 2 verschillende datatypen zijn en er moet dus 1 van de 2 van datatypen veranderd worden. 
+*/
 
 /*
 Alter table Stuk

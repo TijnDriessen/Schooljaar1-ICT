@@ -44,7 +44,7 @@ VALUES ('SCHIPHAIRP', 'autoverhuur Heijendaal Amsterdam', 'Hoofdweg 27', '1011 A
 ('EDHVN', 'autoverhuur Heijendaal Eindhoven', 'straatweg 18', '5623 EL', 'Eindhoven', 'Nederland' ),
 ('APLDRN', 'autoverhuur Heijendaal Apeldoorn', 'florastraat 69', '7325 GP', 'Apeldoorn', 'Nederland' ),
 ('BERLCENTR', 'autoverhuur Heijendaal Berlijn', 'Hauptstraﬂe 78', '10317', 'Berlijn', 'Duitsland' ),
-('MDLBRG', 'autoverhuur Heijendaal Middelburg', 'Founastraat 1', '4331 AA', 'Middelburg', 'Nederland' );
+('MDLBRG', 'autoverhuur Heijendaal Middelburg', 'Faunastraat 1', '4331 AA', 'Middelburg', 'Nederland' );
 
 
 
