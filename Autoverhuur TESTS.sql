@@ -38,8 +38,8 @@ ALTER TABLE Huurcontract
 ADD is_betaald BIT NOT NULL DEFAULT 0;
 
 
-Delete From Autotype
-Where typecode = 'GSUVHD6'
+Delete From Auto
+Where modelnaam = 'Corsa' 
 
 Delete From Auto
 Where autonr = 12
@@ -53,10 +53,10 @@ Where contractnr = 994450
 
 
 insert into Auto (autonr, autotype, kenteken, merk, modelnaam, kleur, is_automaat, is_elektrisch, is_in_orde)
-Values(12, 'GSUVHD6', 'FG-SR-79', 'Opel', 'Corsa', 'blauw', 0,1,1);
+Values(12, 'GSUV5', 'FG-SR-79', 'Opel', 'Corsa', 'blauw', 0,1,1);
 
 insert into Auto (autonr, autotype, kenteken, merk, modelnaam, kleur, is_automaat, is_elektrisch, is_in_orde)
-Values(12, 'GSUVHD6', 'FG-SR-78', 'Opel', 'Corsa', 'blauw', 0,1,1);
+Values(12, 'GSUV5', 'FG-SR-78', 'Opel', 'Corsa', 'blauw', 0,1,1);
 
 insert into Locatie (locatiecode, naam, adres, postcode, plaats, land)
 Values('MDLBRGHD', 'autoverhuur Heijendaal Middelburg', 'Faunastraat 1', '4331 AA', 'Middelburg', 'Nederland');
