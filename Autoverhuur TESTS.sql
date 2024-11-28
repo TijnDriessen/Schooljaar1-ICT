@@ -71,6 +71,14 @@ insert into Huurcontract(contractnr, klant, van_datum, tot_datum, locatie_ophale
 Values (994450, 165321, '2024-10-20', '2024-12-14', 'EDHVN', 'APLDRN', 'KSUV5', 0, 0,28);
 
 
+
+
+
+
+
+
+
+
 SELECT     Huurcontract.contractnr, 
 	       Huurcontract.klant AS klantnr, 
 		   CONCAT(Klant.voornaam, ' ', Klant.tussenvoegsels, ' ', Klant.achternaam) AS volledige_naam, 
