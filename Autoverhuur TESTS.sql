@@ -1,4 +1,4 @@
-	Update auto
+Update auto
 Set kleur = 'Blauw'
 where kenteken = 'FG-SR-79';
 
@@ -103,7 +103,7 @@ ORDER BY Huurcontract.van_datum ASC;
 --Laat ALLE Huurcontracten zien, ook degene waarvan krijgt auto NULL is--
 SELECT    Huurcontract.contractnr, 
           Huurcontract.klant AS klantnr, 
-          CONCAT(Klant.voornaam, klant.tussenvoegsels, Klant.achternaam) AS volledige_naam, 
+          CONCAT(Klant.voornaam,' ', klant.tussenvoegsels,' ', Klant.achternaam) AS volledige_naam, 
           Huurcontract.van_datum AS begindatum, 
           Auto.kenteken, 
           Auto.merk 
