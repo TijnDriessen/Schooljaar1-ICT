@@ -78,7 +78,7 @@ Values (994450, 165321, '2024-10-20', '2024-12-14', 'EDHVN', 'APLDRN', 'KSUV5', 
 
 
 
-
+--laat alle huurcontracten zien waarvan het jaar 2024 is--
 SELECT     Huurcontract.contractnr, 
 	       Huurcontract.klant AS klantnr, 
 		   CONCAT(Klant.voornaam, ' ', Klant.tussenvoegsels, ' ', Klant.achternaam) AS volledige_naam, 
@@ -92,7 +92,7 @@ JOIN Klant ON Huurcontract.klant = Klant.klantnr
 
 JOIN Autotype ON Huurcontract.wenst_autotype = Autotype.typecode
 
-WHERE Huurcontract.van_datum >= '2024-01-01'
+WHERE year(van_datum) = 2024
 
 ORDER BY Huurcontract.van_datum ASC;
 
@@ -100,42 +100,41 @@ ORDER BY Huurcontract.van_datum ASC;
 
 
 
+--Laat ALLE Huurcontracten zien, ook degene waarvan krijgt auto NULL is--
+SELECT    Huurcontract.contractnr, 
+          Huurcontract.klant AS klantnr, 
+          CONCAT(Klant.voornaam, klant.tussenvoegsels, Klant.achternaam) AS volledige_naam, 
+          Huurcontract.van_datum AS begindatum, 
+          Auto.kenteken, 
+          Auto.merk 
 
-SELECT		Huurcontract.contractnr, 
-			Huurcontract.klant AS klantnr, 
-			CONCAT(Klant.voornaam, ' ', Klant.tussenvoegsels, ' ', Klant.achternaam) AS volledige_naam, 
-			Huurcontract.van_datum AS begindatum, 
-			Auto.kenteken, 
-			Auto.merk
- 
-FROM    Huurcontract
- 
-JOIN    Klant ON Huurcontract.klant = Klant.klantnr
- 
-JOIN    Auto ON Huurcontract.krijgt_auto = Auto.autonr
- 
-ORDER BY    Huurcontract.van_datum;
+FROM      Huurcontract 
 
+JOIN      Klant ON Huurcontract.klant = Klant.klantnr 
 
+LEFT JOIN Auto ON Huurcontract.krijgt_auto = Auto.autonr 
+
+ORDER BY  Huurcontract.van_datum;
 
 
- 
-SELECT		Auto.merk, 
-			COUNT(Huurcontract.contractnr) AS aantal_verhuurd
 
-FROM Auto
+--Laat alle automerken zien die verhuurd zijn--
+SELECT    Auto.merk, 
+          COUNT(Huurcontract.contractnr) AS aantal_verhuurd 
 
-JOIN  Huurcontract ON Auto.autonr = Huurcontract.krijgt_auto
+FROM      Auto 
 
-GROUP BY  Auto.merk
- 
+LEFT JOIN Huurcontract ON Auto.autonr = Huurcontract.krijgt_auto 
+
+GROUP BY  Auto.merk 
+
 ORDER BY  aantal_verhuurd ASC;
 
 
 
 
 
- 
+ --Laat het aantal opgehaalde auto's zien --
 SELECT    Locatie.locatiecode, 
 		  Locatie.naam AS locatienaam, 
 		  COUNT(Huurcontract.contractnr) AS aantal_opgehaald
