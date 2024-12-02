@@ -118,7 +118,7 @@ ORDER BY  Huurcontract.van_datum;
 
 
 
---Laat alle automerken zien die verhuurd zijn--
+--Laat alle automerken zien en hoevaak ze verhuurd zijn--
 SELECT    Auto.merk, 
           COUNT(Huurcontract.contractnr) AS aantal_verhuurd 
 
@@ -134,7 +134,7 @@ ORDER BY  aantal_verhuurd ASC;
 
 
 
- --Laat het aantal opgehaalde auto's zien --
+ --Laat het aantal opgehaalde auto's zien voor alle locaties die meer dan 2 opgehaalde auto's hebben --
 SELECT    Locatie.locatiecode, 
 		  Locatie.naam AS locatienaam, 
 		  COUNT(Huurcontract.contractnr) AS aantal_opgehaald
