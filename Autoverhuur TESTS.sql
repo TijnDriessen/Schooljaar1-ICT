@@ -145,7 +145,7 @@ JOIN    Huurcontract ON Locatie.locatiecode = Huurcontract.locatie_ophalen
  
 WHERE   YEAR(Huurcontract.van_datum) = 2024
 
-GROUP BY     Locatie.locatiecode, Locatie.naam
+GROUP BY     Locatie.locatiecode, Locatie.naam	
  
 HAVING    COUNT(Huurcontract.contractnr) > 2
 

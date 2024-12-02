@@ -152,22 +152,3 @@ Add constraint uc_Locatiecheck Unique (adres, plaats, land);
 
 Alter table Huurcontract
 Add constraint ck_Datumcheck CHECK (tot_datum >= van_datum);
-
-
-/*
-Alter table Huurcontract
-Add constraint ck_Autotypecheck CHECK (krijgt_auto = wenst_autotype);   
-*/
-
-/*
-dit kan niet omdat het 2 verschillende datatypen zijn en er moet dus 1 van de 2 van datatypen veranderd worden. 
-*/
-
-/*
-Alter table Stuk
-Add contraint ck_speelduur CHECK (speelduur > 0);
-
-Alter table Stuk
-Add constraint ck_jaartal CHECK (jaartal <= YEAR(GETDATE())
-);
-*/
