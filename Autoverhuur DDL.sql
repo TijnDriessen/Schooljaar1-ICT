@@ -155,17 +155,13 @@ Add constraint uc_Locatiecheck Unique (adres, plaats, land);
 Alter table Huurcontract
 Add constraint ck_Datumcheck CHECK (tot_datum >= van_datum);
 
-
-
+--Opdracht 5a--
 
 drop function dbo.fnControleerAuto
 
 
 
-Create function dbo.fnControleerAuto( 
-@krijgt_auto int
-,@wenst_autotype char(10)
-)
+Create function dbo.fnControleerAuto(@krijgt_auto int, @wenst_autotype char(10))
 
 RETURNS BIT
 AS
@@ -185,5 +181,5 @@ END;
 ALTER TABLE Huurcontract
 ADD CONSTRAINT ck_AutoCheck CHECK (
     dbo.fnControleerAuto(krijgt_auto, wenst_autotype) = 1
-);
+);	
 
