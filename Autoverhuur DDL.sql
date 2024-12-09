@@ -120,6 +120,8 @@ CREATE TABLE Huurcontract (
 	REFERENCES Auto(autonr)
 	ON UPDATE NO ACTION
 	ON DELETE NO ACTION
+	
+	
 );		
 
 
@@ -152,3 +154,36 @@ Add constraint uc_Locatiecheck Unique (adres, plaats, land);
 
 Alter table Huurcontract
 Add constraint ck_Datumcheck CHECK (tot_datum >= van_datum);
+
+
+
+
+drop function dbo.fnControleerAuto
+
+
+
+Create function dbo.fnControleerAuto( 
+@krijgt_auto int
+,@wenst_autotype char(10)
+)
+
+RETURNS BIT
+AS
+BEGIN
+    DECLARE @goedeAuto BIT = 1;
+	BEGIN
+        DECLARE @autotype CHAR(10);
+        SELECT @autotype = autotype
+        FROM Auto
+        WHERE autonr = @krijgt_auto;
+        IF @autotype <> @wenst_autotype
+            SET @goedeAuto = 0;
+    END
+    RETURN @goedeAuto;
+END;
+
+ALTER TABLE Huurcontract
+ADD CONSTRAINT ck_AutoCheck CHECK (
+    dbo.fnControleerAuto(krijgt_auto, wenst_autotype) = 1
+);
+
