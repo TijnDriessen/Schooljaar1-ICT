@@ -158,8 +158,9 @@ Add constraint ck_Datumcheck CHECK (tot_datum >= van_datum);
 --Opdracht 5a--
 
 	ALTER TABLE Huurcontract
-	DROP CONSTRAINT ck_AutoCheck;
-	
+	DROP CONSTRAINT If Exists ck_AutoCheck;
+	Go
+
 	drop function If Exists dbo.fnControleerAuto
 	Go
 
