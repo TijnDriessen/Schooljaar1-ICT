@@ -71,9 +71,6 @@ insert into Huurcontract(contractnr, klant, van_datum, tot_datum, locatie_ophale
 Values (994450, 165321, '2024-10-20', '2024-12-14', 'EDHVN', 'APLDRN', 'KSUV5', 0, 0,28);
 
 
-
-
-
 --OPDRACHT 4--
 
 
@@ -154,14 +151,20 @@ ORDER BY  aantal_opgehaald ASC;
 
 --opdracht 5b--
 
-Delete From Huurcontract
-Where contractnr = 994451
 
-insert into Huurcontract(contractnr, klant, van_datum, tot_datum, locatie_ophalen, locatie_terugbrengen, wenst_autotype, wenst_automaat, wenst_elektrisch, krijgt_auto)
-Values(994451, 165323, '2024-10-20', '2024-12-14', 'EDHVN', 'APLDRN', 'KSUV5', 0, 0,57);
 
 Delete From Huurcontract
 Where contractnr = 994452
 
 insert into Huurcontract(contractnr, klant, van_datum, tot_datum, locatie_ophalen, locatie_terugbrengen, wenst_autotype, wenst_automaat, wenst_elektrisch, krijgt_auto)
 Values(994452, 165323, '2024-10-20', '2024-12-14', 'EDHVN', 'APLDRN', 'HTCHBK4', 0, 0,57);
+
+
+Delete From Huurcontract
+Where contractnr = 994451
+
+insert into Huurcontract(contractnr, klant, van_datum, tot_datum, locatie_ophalen, locatie_terugbrengen, wenst_autotype, wenst_automaat, wenst_elektrisch, krijgt_auto)
+Values(994451, 165323, '2024-10-20', '2024-12-14', 'EDHVN', 'APLDRN', 'KSUV5', 0, 0,57);
+
+Select *
+From Huurcontract

@@ -157,29 +157,29 @@ Add constraint ck_Datumcheck CHECK (tot_datum >= van_datum);
 
 --Opdracht 5a--
 
-drop function dbo.fnControleerAuto
+	drop function If Exists dbo.fnControleerAuto
+	Go
 
 
+	Create function dbo.fnControleerAuto(@krijgt_auto int, @wenst_autotype char(10))
 
-Create function dbo.fnControleerAuto(@krijgt_auto int, @wenst_autotype char(10))
-
-RETURNS BIT
-AS
-BEGIN
-    DECLARE @goedeAuto BIT = 1;
+	RETURNS BIT
+	AS
 	BEGIN
-        DECLARE @autotype CHAR(10);
-        SELECT @autotype = autotype
-        FROM Auto
-        WHERE autonr = @krijgt_auto;
-        IF @autotype <> @wenst_autotype
-            SET @goedeAuto = 0;
-    END
-    RETURN @goedeAuto;
-END;
+		DECLARE @goedeAuto BIT = 1;
+		BEGIN
+			DECLARE @autotype CHAR(10);
+			SELECT @autotype = autotype
+			FROM Auto
+			WHERE autonr = @krijgt_auto;
+			IF @autotype <> @wenst_autotype
+				SET @goedeAuto = 0;
+		END
+		RETURN @goedeAuto;
+	END;
 
-ALTER TABLE Huurcontract
-ADD CONSTRAINT ck_AutoCheck CHECK (
-    dbo.fnControleerAuto(krijgt_auto, wenst_autotype) = 1
-);	
+	ALTER TABLE Huurcontract
+	ADD CONSTRAINT ck_AutoCheck CHECK (
+		dbo.fnControleerAuto(krijgt_auto, wenst_autotype) = 1
+	);	
 
