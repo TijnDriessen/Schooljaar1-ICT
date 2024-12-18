@@ -1,12 +1,8 @@
 --1a.
---ComponistId		naam				geboortedatum		schoolId		naam						plaatsnaam
+--ComponistId		naam				geboortedatum
 
---1					Charlie Parker		1904-12-12			NULL			NULL						NULL	
---2					Thom Guidi			1946-01-05			1				Muziekschool Amsterdam		Amsterdam
---4					Rudolf Escher		1912-01-08			NULL			NULL						NULL
---8					W.A. Mozart			1756-01-27			NULL			NULL						NULL
---10				Jan van Maanen		1965-09-08			1				Muziekschool Amsterdam		Amsterdam
---11				Hans Zimmer			1957-09-12			NULL			NULL						NULL
+--10				Jan van Maanen		1965-09-08			
+--2					Thom Guidi			1946-01-05			
 
 
 --2a.
@@ -15,11 +11,19 @@ From Componist AS C
 Left join Stuk AS S ON C.componistId = S.componistId 
 Left join Muziekschool AS M ON M.schoolId = C.schoolId
 Where niveaucode IS NOT NULL 
-AND M.naam Like '%dam'
+AND M.plaatsnaam Like '%dam'
 GROUP BY S.componistId, C.naam, M.naam
 
 --2b.
 Having Sum(S.speelduur) > 10.0;
 
 --3
+Select stuknr, titel
+From Stuk
+Where genrenaam = 'klassiek' 
+OR stuknrOrigineel IN (SELECT stuknr 
+From stuk
+WHERE genrenaam = 'klassiek');
+
+--4
 
