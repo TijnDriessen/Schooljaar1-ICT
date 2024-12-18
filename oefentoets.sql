@@ -27,3 +27,40 @@ WHERE genrenaam = 'klassiek');
 
 --4
 
+Select C.componistId, C.Naam, S.stuknr
+From Componist AS C
+Inner Join Stuk AS S ON C.componistId = S.componistId 
+Inner Join Bezettingsregel AS B ON S.stuknr = B.stuknr
+Where genrenaam = 'klassiek'
+AND instrumentnaam = 'piano'
+AND S.stuknr NOT IN (
+Select stuknr
+From Bezettingsregel
+WHERE instrumentnaam = 'fluit'
+AND toonhoogte = 'alt'
+);	
+
+--5
+
+SELECT *
+From Stuk
+WHERE genrenaam IN ('jazz', 'pop')
+OR componistId IN (
+Select componistId
+From Componist C
+Where schoolId IS NOT NULL
+OR schoolId NOT IN (
+SELECT schoolId
+FROM Muziekschool
+Where plaatsnaam = 'Amsterdam'))
+
+
+
+
+--FROM Muziekschool --> Stuk
+--Jazz AND POP --> Jazz , POP
+--Select * --> Select schoolId
+
+
+--6
+
